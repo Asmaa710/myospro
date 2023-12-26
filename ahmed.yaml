@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: jgeoidrg
+
+spec:
+  selector:
+    matchLabels:
+      app: Muhammad
+
+  replicas: 7
+  template:
+    metadata:
+      name: my-first2-pod
+      labels:
+        app: Muhammad
+    spec:
+      containers:
+        - image: nginx:alpine
+          name: nginx-container
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+            requests:
+              memory: "100Mi"
